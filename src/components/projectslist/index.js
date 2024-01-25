@@ -1,0 +1,27 @@
+import './index.css'
+
+const ProjectsList = (props) => {
+    const {ProjectsListItems} = props
+     
+
+    return (
+        
+            
+        
+        <div className="project-list-items"> 
+        
+        <div className='project-title'> <h1> {ProjectsListItems.projectName} </h1>
+        <p> {ProjectsListItems.description} </p>
+        <button className='view-project' type='button'> View Project </button> 
+        </div>
+        <div className='img-cont'> 
+            <img className='img-pro' alt='img' src={ProjectsListItems.imgUrl}/> 
+        </div>
+        
+        </div>
+    
+    )
+}
+
+
+export default ProjectsList
