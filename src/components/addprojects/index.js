@@ -1,15 +1,15 @@
 import {Component} from 'react'
 import ProjectsList from '../projectslist'
 
-const MyProjects = [{id: 0, projectName: 'Project1', description: 'A project description is a document that outlines a project key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://www.reliancedigital.in/wp-content/uploads/2023/07/Oppo_Reno_10_5g_Cover.jpg'},
-{id: 1, projectName: 'Project2', description: 'A project description is a document that outlines a projects key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSLLn0JZjOx0iNTWc2w6SmSxAlqqsIDe2zIw&usqp=CAU'},
-{id: 2, projectName: 'Project3', description: 'A project description is a document that outlines a projects key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqk2PckhyOcKqpyEsNbNfPuw1r_T0hWccoLg&usqp=CAU'}]
+const MyProjects = [{id: 0, projectName: 'Project 1', description: 'A project description is a document that outlines a project key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://www.reliancedigital.in/wp-content/uploads/2023/07/Oppo_Reno_10_5g_Cover.jpg'},
+{id: 1, projectName: 'Project 2', description: 'A project description is a document that outlines a projects key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSLLn0JZjOx0iNTWc2w6SmSxAlqqsIDe2zIw&usqp=CAU'},
+{id: 2, projectName: 'Project 3', description: 'A project description is a document that outlines a projects key details, objectives, and scope. It provides a roadmap for stakeholders involved in the project, ensuring a common understanding of its purpose and guiding successful execution.', imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqk2PckhyOcKqpyEsNbNfPuw1r_T0hWccoLg&usqp=CAU'}]
 
 
 
 class Addprojects extends Component{
 
-    state = {myProjects: MyProjects, id: '', projectName: '', projectLink:'', description:''}
+    state = {myProjects: MyProjects, id: '', projectName: '', projectLink:'', description:'', imgUrl: ''}
 
     onAddingProjectName = (event) => {
         this.setState({projectName: event.target.value})
@@ -26,9 +26,13 @@ class Addprojects extends Component{
 
     onAddProject = () => {
         const {projectName, description, projectLink, myProjects } = this.state
-        const newItem = {id: myProjects.length, projectName: projectName, description: description, projectLink: projectLink }
+        if (projectName !== '' && description !=='' &&  projectLink !=='' ){
+            const newItem = {id: myProjects.length, projectName: projectName, description: description, projectLink: projectLink }
         console.log(myProjects)
-        this.setState({myProjects: [...myProjects, newItem]})
+        this.setState({myProjects: [...myProjects, newItem], projectName: '', description:'', id: '', projectLink:'', imgUrl: ''})
+
+        }
+        
     }
 
 
